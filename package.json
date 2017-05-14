@@ -1,0 +1,23 @@
+{
+    "name": "com.photoaa.www",
+    "version": "1.0.0",
+    "displayName": "photoaa",
+    "cordova": {
+        "platforms": [
+            "android",
+            "browser"
+        ],
+        "plugins": {
+            "cordova-plugin-geolocation": {},
+            "cordova-plugin-whitelist": {},
+            "cordova.plugins.diagnostic": {}
+        }
+    },
+    "dependencies": {
+        "cordova-android": "^6.2.3",
+        "cordova-browser": "^4.1.0",
+        "cordova-plugin-geolocation": "~2.4.3",
+        "cordova-plugin-whitelist": "1",
+        "cordova.plugins.diagnostic": "^3.6.0"
+    }
+}

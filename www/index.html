@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PhotoAA</title>
+	<meta http-equiv="Content-Security-Policy" content="default-src * gap: ws: https://ssl.gstatic.com;style-src * 'unsafe-inline' 'self' data: blob:;script-src * 'unsafe-inline' 'unsafe-eval' data: blob:;img-src * data: 'unsafe-inline' 'self' content:;fmedia-src mediastream;">
+
+	<meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+	<link rel="stylesheet" type="text/css" href="./css/main.css" />
+<style type="text/css">
+	.active_city_opt {
+		cursor: auto;
+		padding: 5px;
+		color: #CD1B9C;
+		border: 1px solid #CD1B9C;
+		border-radius: 50px;
+	}
+	.inactive_city_opt {
+		cursor: pointer;
+		padding: 5px;
+	}
+
+	#before_after_line h6:after, #before_after_line h6:before {
+		content: "";
+		display: inline-block;
+		width: 30px;
+		border-top: solid 1px #d1d2d9;
+		margin: 0 15px;
+		height: 5px;
+	}
+
+	#city_opt {
+		display: block;
+	}
+	#city_opt td {
+		display: inline-block;
+	}
+</style>
+</head>
+<body>
+	<form>
+		<div style="width: 70%; position:absolute; top: 25%;" class="center_element">
+			<div class="child_element_space child_element_center">
+				<img src="img/gps_location_icon.png" style="margin-top: 0; width: 25%; height: 25%;" />
+				<h4 style="text-align: center;">Your GPS location not avilable</h4>
+			</div>
+
+			<div id="before_after_line">
+				<h6 class="element_space center_element">SELECT VENUE CITY</h6>
+				<table class="center_element" class="element_space">
+					<tr style="text-align: center; width: 100%;" id="city_opt">
+						<td class="inactive_city_opt" onclick="activate_locality_opt(this, 0);" >Bangalore</td>
+						<td class="inactive_city_opt" class="city_opt" onclick="activate_locality_opt(this, 1);" >Hydrabad</td>
+						<td class="inactive_city_opt" class="city_opt" onclick="activate_locality_opt(this, 2);" >Mumbai</td>
+						<td class="inactive_city_opt" class="city_opt" onclick="activate_locality_opt(this, 3);" >Chennai</td>
+						<td class="inactive_city_opt" class="city_opt" onclick="activate_locality_opt(this, 4);" >Hydrabad</td>
+						<td class="inactive_city_opt" class="city_opt" onclick="activate_locality_opt(this, 5);" >Mumbai</td>
+						<td class="inactive_city_opt" class="city_opt" onclick="activate_locality_opt(this, 6);" >Chennai</td>
+					</tr>
+				</table>
+			</div>
+
+
+			<div class="element_space center_element" >
+				<input list="locality_id" style="border: 1px solid black; width: 100%; height: 35px; text-align: center; font-size: 100%;">
+					<datalist id="locality_id" class="child_element_space">
+						<option class="locality_opt" value="Bangalore">Bangalore</option>
+						<option class="locality_opt" value="Hydrabad">Hydrabad</option>
+						<option class="locality_opt" value="Mumbai">Mumbai</option>
+						<option class="locality_opt" value="Chennai">Chennai</option>
+					</datalist>
+				</input>
+			</div>
+		</div>
+
+		<div class="element_space">
+			<button class="main_button">Show gallery</button>
+		</div>
+	</form>
+
+	<script type="text/javascript" src="cordova.js"></script>
+	<script type="text/javascript">
+		function activate_locality_opt(selected, _id) {
+			selected.classList.remove('inactive_city_opt');
+			selected.classList.add('active_city_opt');
+			document.getElementById("number");
+			var selections = city_opt.getElementsByTagName('td');
+			for (var i = 0; i < selections.length; i++) {
+				if(i != _id) {
+					var selection = selections[i];
+					selection.classList.remove("active_city_opt");
+					selection.classList.remove("inactive_city_opt");
+				}
+			}
+		}
+
+	</script>
+</body>
+</html>
