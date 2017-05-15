@@ -34,12 +34,23 @@
 		.active_sub_menu {
 			list-style-type: none;
 		}
+
+		.inactive_menu_icon, .inactive_close_icon {
+			display: none;
+		}
+
+		.active_menu_icon, .active_close_icon {
+			display: inline;
+		}
 	</style>
 <body>
-	<div id="menu-container">
+
+	<img src="img/menu_icon.png" id="menu_icon"  onclick="open_menu();" class="active_menu_icon" style="margin-left:1.5vh; margin-top:1.5vh; width: 3.0vh;" />
+
+	<div id="menu-container" style="display: none;">
 		
 		<div class="close burger-menu-toggle">
-			<img src="img/close.png" style="margin-left:1.5vh; margin-top:1.5vh; width: 2.5vh;" />
+			<img src="img/close.png" onclick="close_menu();" style="margin-left:1.5vh; margin-top:1.5vh; width: 2.5vh;" />
         </div>
 
         <div id="main-menu">
@@ -135,6 +146,18 @@
 				// remove inactive from class, current click
 				selected.getElementsByTagName('ul')[0].classList.add("inactive_sub_menu");
 			}
+		}
+
+		function close_menu() {
+			document.getElementById('menu-container').style.display = "none";
+			document.getElementById("menu_icon").classList.remove("inactive_menu_icon");
+			document.getElementById("menu_icon").classList.add("active_menu_icon");
+		}
+
+		function open_menu() {
+			document.getElementById('menu-container').style.display = "block";
+			document.getElementById("menu_icon").classList.remove("active_menu_icon");
+			document.getElementById("menu_icon").classList.add("inactive_menu_icon");
 		}
 
 		function selected_option(selected, _id) {
