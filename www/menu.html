@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+	<style type="text/css">
+		
+		.inactive_sub_menu {
+			list-style-type: none;
+			display: none;
+		}
+
+		.active_sub_menu {
+			list-style-type: none;
+		}
+	</style>
+<body>
+	<div class="close burger-menu-toggle">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNyIgaGVpZ2h0PSIxNyIgdmlld0JveD0iMCAwIDE3IDE3Ij4KICAgIDxwYXRoIGZpbGw9IiNDN0M3QzciIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjNEE0QTRBIiBzdHJva2Utd2lkdGg9IjEuMyIgZD0iTTguNTM1IDEwLjQxbDUuNDcgNS40N2MuMzQxLjM0IDEuMDI5LjIxNiAxLjU2LS4zMTUuNTMtLjUzMS42NTYtMS4yMTkuMjk0LTEuNThsLTUuNDUtNS40NSA1LjQ3LTUuNDdjLjM0Mi0uMzQxLjIxNy0xLjAyOS0uMzE0LTEuNTYtLjUzMS0uNTMtMS4yMTktLjY1Ni0xLjU2LS4zMTRsLTUuNDcgNS40Ny01LjQ3LTUuNDdjLS4zNDEtLjM0Mi0xLjAyOS0uMjE3LTEuNTYuMzE0LS41My41MzEtLjY1NiAxLjIxOS0uMzE0IDEuNTZsNS40NyA1LjQ3LTUuNDcgNS40N2MtLjM0Mi4zNDEtLjIxNyAxLjAyOS4zMTQgMS41Ni41MzEuNTMgMS4yMTkuNjU2IDEuNTguMjk0bDUuNDUtNS40NXoiLz4KPC9zdmc+Cg==" alt="close">
+        </div>
+
+        <ul id="main-menu" style="list-style-type:none">
+			<li>
+				<div style="cursor: pointer;">
+					<span onclick="click_sub_menu(this.parentElement, 2);">Graphs</span>
+					<ul class="sub-menu inactive_sub_menu">
+						<li>a</li>
+						<li>b</li>
+						<li>c</li>
+					</ul>
+				</div>
+			</li>
+
+			<li>
+				<div style="cursor: pointer;">
+					<span onclick="click_sub_menu(this.parentElement, 1);">Event</span>
+					<ul class="sub-menu inactive_sub_menu" >
+						<li>d</li>
+						<li>e</li>
+						<li>f</li>
+					</ul>
+				</div>
+			</li>
+
+			<li>
+				<div style="cursor: pointer;">
+					<span onclick="click_sub_menu(this.parentElement, 2);">Milk</span>
+					<ul class="sub-menu inactive_sub_menu">
+						<li>g</li>
+						<li>h</li>
+						<li>j</li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+
+		<script type="text/javascript">
+			function click_sub_menu(selected, _id) {
+				// remove inactive from class, current click
+				selected.getElementsByTagName('ul')[0].classList.remove("inactive_sub_menu");
+				//remove all the active elements
+				var d = document.getElementById("main-menu").getElementsByClassName("active_sub_menu");
+				if(d.length > 0) {
+					console.log(d);
+					console.log(d[0].remove('active_sub_menu'));
+					
+				}
+				
+				//add active to class, current click
+				selected.getElementsByTagName('ul')[0].classList.add("active_sub_menu");
+			}
+
+		</script>
+</body>
+</html>
